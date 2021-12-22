@@ -7,7 +7,7 @@ from .models import News
 
 def index(request):
     # print(dir(request))
-    news = News.objects.order_by('-created_at')
+    news = [x for x in News.objects.all() if x.is_published]
     context = {
         'news': news,
         'title': 'Список новостей'
