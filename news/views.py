@@ -14,3 +14,12 @@ def index(request):
 
     }
     return render(request, template_name='news/index.html', context=context)
+
+
+def registration(request):
+    return render(request, template_name='news/registration.html')
+
+
+def reg_2(request):
+    print(request.POST)
+    return HttpResponse('Вы зарегистрированы!')

@@ -18,7 +18,7 @@ class News(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, verbose_name='Фото')  # только изображение
     is_published = models.BooleanField(default=True, verbose_name='Статус публикации')
-    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)  # PROTECT обеспечивает защиту от удаления
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, blank=True, verbose_name='Категория')  # PROTECT обеспечивает защиту от удаления
 
     def __str__(self):
         return self.title
@@ -40,7 +40,12 @@ class News(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=150, verbose_name='Категория', db_index=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['title']  # влияет на views приложения
+
+
