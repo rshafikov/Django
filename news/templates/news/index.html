@@ -21,7 +21,7 @@
           <a class="nav-link" href="/">Главная</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Добавить новость</a>
+          <a class="nav-link" href="/new_post">Добавить пост</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/registration">Регистрация</a>
@@ -49,19 +49,29 @@
           <div class="'row">
               <div class="col-md-12">
                   {% for item in news %}
-                      <div class="card mb-3">
-                          <div class="card-header">
-                            Категория: {{ item.category }}
+                  <div class="card mb-3">
+                      <div class="card-header">
+                          Категория: {{ item.category }}
+                      </div>
+                      <div class="card-body">
+                          <div class="media">
+                              {% if item.photo %}
+                                <img src="{{ item.photo.url }}" alt="" width="350" class="mr-3">
+                              {% else %}
+                                <! что-то будем выводить>
+                                <img src="https://picsum.photos/id/1084/350/300?grayscale" alt="" class="mr-3">
+                              {% endif %}
+                              <div class="media-body">
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                <p class="card-text">{{ item.content|safe|linebreaks|truncatewords:200 }}</p>
+                                <a href="#" class="btn btn-primary">Read more...</a>
+                            </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ item.title }}</h5>
-                            <p class="card-text">{{ item.content }}</p>
-                            <a href="#" class="btn btn-primary">Read more...</a>
-                          </div>
-                          <div class="card-footer text-muted">
-                            {{ item.created_at|date:"d/m/Y - H : i" }}
-                          </div>
-                        </div>
+                      </div>
+                      <div class="card-footer text-muted">
+                        posted {{ item.created_at|timesince }} ago - {{ item.created_at|date:"d/m/Y - H : i" }}
+                      </div>
+                    </div>
                   {% endfor %}
               </div>
           </div>

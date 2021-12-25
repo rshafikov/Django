@@ -49,3 +49,6 @@ class Category(models.Model):
         ordering = ['title']  # влияет на views приложения
 
 
+# class UserDatabase(models.Model):
+#     login = models.CharField(max_length=150, verbose_name='Логин')
+#     email = models.CharField(max_length=150, verbose_name='Логин')

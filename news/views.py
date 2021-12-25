@@ -20,6 +20,13 @@ def registration(request):
     return render(request, template_name='news/registration.html')
 
 
-def reg_2(request):
+def registration_complete(request):
     print(request.POST)
     return HttpResponse('Вы зарегистрированы!')
+
+
+def new_post(request):
+    if request.method == 'POST':
+        new_news = News.objects.create(title=request.POST['title'], content=request.POST['text'])
+        new_news.save()
+    return render(request, template_name='news/new_post.html')
