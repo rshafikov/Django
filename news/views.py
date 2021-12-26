@@ -10,8 +10,7 @@ def index(request):
     news = [x for x in News.objects.all() if x.is_published]
     context = {
         'news': news,
-        'title': 'Список новостей'
-
+        'title': 'Список новостей',
     }
     return render(request, template_name='news/index.html', context=context)
 
@@ -30,3 +29,7 @@ def new_post(request):
         new_news = News.objects.create(title=request.POST['title'], content=request.POST['text'])
         new_news.save()
     return render(request, template_name='news/new_post.html')
+
+
+def draw(request):
+    return render(request, template_name='news/draw.html')

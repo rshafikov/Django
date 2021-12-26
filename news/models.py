@@ -23,6 +23,7 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
+
     # открыть консоль DJANGO IntercativeConsole - python3 manage.py shell не забывать импортировать модель из from
     # news.models import News >>> from django.db import connection >>> connection.queries [{'sql': 'INSERT INTO
     # "news_news" ("title", "content", "created_at", "updated_at", "photo", "is_published") SELECT \'Новость 1\',

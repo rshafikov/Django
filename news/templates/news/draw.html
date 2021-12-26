@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://code.s3.yandex.net/web-code/styles/lesson-5/vendor.css">
+
+  <!-- подключение файла стилей -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'news/style.css' %}" />
+</head>
+<body>
+  <button id="button">Нравится</button>
+
+  <!-- подключение скрипта -->
+    {% load static %}
+  <script src="{% static 'news/style.css' %}"></script>
+
+  <script src="https://code.s3.yandex.net/web-code/libs/p5.js"></script>
+  <script src="https://code.s3.yandex.net/web-code/scripts/lesson-5/vendor.js"></script>
+</body>
+</html>
