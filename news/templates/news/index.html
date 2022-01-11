@@ -9,10 +9,10 @@
 
     <title>{{ title }}</title>
 </head>
-<body>
+<body style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand">Новости</a>
+            <a class="navbar-brand">{% now "G:i" %}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@
                     <div class="card-header">
                         Категория: {{ item.category }}
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);">
                         <div class="wrapper">
                             <div class="left_block" style="width: 400px; float: left;">
                                 <div class="media">

@@ -10,7 +10,7 @@ def index(request):
     news = [x for x in News.objects.all() if x.is_published]
     context = {
         'news': news,
-        'title': 'Список новостей',
+        'title': 'Новости',
     }
     return render(request, template_name='news/index.html', context=context)
 
